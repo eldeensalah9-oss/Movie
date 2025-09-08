@@ -1,0 +1,242 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+    /* no sideways scroll */
+    margin: 0;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: transparent;
+    position: absolute;
+    width: 100%;
+}
+
+header .logo {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+header .logo span {
+    color: #ffc107;
+    /* Yellow highlight */
+}
+
+header nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.search {
+    font-size: 20px;
+}
+
+:root {
+    --movie-gradient: linear-gradient(to right, rgba(0, 0, 0, 0.8) 25%, rgba(0, 0, 0, 0.2) 60%, transparent 100%);
+}
+
+.container {
+    background: var(--movie-gradient), url('../images/background.svg') no-repeat;
+    background-size: cover;
+    background-position: 90% 30%;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 40px;
+
+}
+
+.hero .content {
+    max-width: 50%;
+}
+
+.bg {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center top;
+    /* or adjust % */
+}
+
+.hero h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.hero .rating {
+    margin-bottom: 10px;
+    color: #ffc107;
+}
+
+.hero .desc {
+    max-width: 400px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.hero .buttons button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.hero .trailer {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.hero .watch {
+    background: #ffc107;
+    color: #000;
+}
+
+.hero .poster img {
+    width: 300px;
+    border-radius: 10px;
+}
+
+/* Movies Section */
+.movies {
+    ;
+    color: white;
+}
+
+.movies h2 {
+    margin-bottom: 20px;
+}
+
+.movies .row {
+    display: flex;
+    gap: 20px;
+}
+
+.movies img {
+    width: 200px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+
+
+
+.movies-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.movies-header h2 {
+    font-size: 24px;
+}
+
+
+/* Movie Carousel Section */
+.carousel-container {
+    position: relative;
+    perspective: 1000px;
+    overflow: hidden;
+    /* Hides cards that are not in view */
+    border-radius: 10px;
+
+}
+
+.carousel-wrapper {
+    display: flex;
+    align-items: flex-end;
+    /* كل البطاقات تترتب من تحت */
+    gap: 20px;
+}
+
+
+.movie-card {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: none;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.movie-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+
+}
+
+/* البطاقة النشطة */
+.movie-card.active {
+    transform: scale(1.3);
+    /* تكبير + بروز للأمام */
+    transform-origin: center;
+    z-index: 3;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    filter: brightness(100%);
+}
+
+/* ممكن تضيف تأثير "تصغير" بسيط للباقي */
+.movie-card:not(.active) {
+    transform: scale(1);
+    opacity: 0.8;
+    filter: brightness(50%);;
+}
+
+
+
+/* Navigation Arrows */
+.arrows {
+    /* Position the arrows container if you want it relative to the carousel */
+
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 10px;
+    z-index: 11;
+    /* Ensure arrows are on top of cards */
+}
+
+.arrows button {
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.1);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.arrows .prev {
+    background-image: url('../images/arrow-down.png');
+}
+
+.arrows .next {
+    background-image: url('../images/arrow-up.png');
+}
